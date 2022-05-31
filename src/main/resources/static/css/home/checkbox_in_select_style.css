@@ -1,0 +1,221 @@
+/* SELECT + SPOILER
+=============================*/
+.select {
+    position: relative;
+
+    margin-bottom: 12px;
+}
+
+.spoiler {
+    display: none;
+}
+
+.spoiler__title {
+    text-align: left;
+}
+
+.select__header {
+    display: flex;
+    cursor: pointer;
+
+    height: 30px;
+    border: 1px solid #000;
+
+    box-shadow: 2px 2px 1px #000;
+}
+
+.select__header:focus {
+    box-shadow: 0 0 0 0.1em #000, 2px 2px 1px #000;;
+}
+
+.select.is-active .select__header {
+    box-shadow: 2px 0 1px #000;
+}
+
+.select__current {
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 17px;
+    padding: 6px;
+}
+
+.select__icon {
+    display: block;
+    justify-content: center;
+    text-align: center;
+    flex-shrink: 0;
+
+    height: 0;
+    width: 0;
+    margin: 10px 5px 10px auto;
+
+    border-style: solid;
+    border-width: 10px 7.5px 0 7.5px;
+    border-color: #65A183 transparent transparent transparent;
+
+    transform: rotate(0deg);
+    transition: transform 0.2s linear;
+}
+
+.select.is-active .select__icon {
+    transform: rotate(90deg);
+    transition: transform 0.2s linear;
+}
+
+.select__body {
+    display: none;
+
+    border: 1px solid #000;
+    padding: 7px 5px 5px 5px;
+    margin-bottom: 10px;
+    border-top: 0;
+    box-shadow: 2px 2px 1px #000;
+
+    text-align: left;
+}
+
+.select.is-active .select__body {
+    display: block;
+}
+
+.select.is-active .select__vertical {
+    display: none;
+}
+
+.select.is-active .spoiler {
+    display: flex;
+    justify-content: space-between;
+
+    width: 100%;
+
+    cursor: pointer;
+    border: 1px solid #000;
+    border-radius: 2px;
+    box-shadow: 2px 2px 1px #000;
+    padding: 4px 6px;
+    margin-bottom: 5px;
+
+    font-family: 'Oswald', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.select.is-active .spoiler.spoiler-is-active {
+    box-shadow: 0 0 0;
+}
+
+.select.is-active .spoiler__icon {
+    justify-content: center;
+    text-align: center;
+    flex-shrink: 0;
+
+    margin: 4px 0 0 0;
+
+    border-style: solid;
+    border-width: 10px 7.5px 0 7.5px;
+    border-color: #65A183 transparent transparent transparent;
+
+    transform: rotate(0deg);
+    transition: transform 0.2s linear;
+}
+
+.spoiler.spoiler-is-active .spoiler__icon {
+    margin: 0 2px 0 0;
+    transform: rotate(90deg);
+    transition: transform 0.2s linear, margin 0.2s linear;
+}
+
+.spoiler.spoiler-is-active + .select__vertical {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+
+    width: 100%;
+    padding: 6px 0 6px 10px;
+}
+
+.select__checkbox {
+    display: block;
+
+    width: 65px;
+    margin-bottom: 4px;
+    padding-left: 24px;
+    padding-top: 5px;
+
+    cursor: pointer;
+}
+
+.select__item {
+    position: absolute;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.select__checkbox__icon {
+    position: absolute;
+
+    width: 16px;
+    height: 16px;
+    margin-left: -22px;
+    margin-bottom: 1px;
+    margin-top: 2px;
+    background: url(../../img/checkbox_icon/no_checked.png) no-repeat center;
+}
+
+
+.select__item:checked + .select__checkbox__icon {
+    background: url(../../img/checkbox_icon/checked.png) no-repeat center;
+}
+
+.select__item:focus + .select__checkbox__icon {
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+}
+
+.select__checkbox__value {
+    display: inline-block;
+
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    width: 40px;
+    height: 17px;
+}
+
+/* MASSAGE
+=============================*/
+.massage {
+    color: red;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Oswald', sans-serif;
+}
+
+#massageCheckbox {
+    margin-top: 10px;
+}
+
+#massageTextArea {
+    margin-top: -5px;
+    margin-bottom: 12px;
+}
+
+/* FORM
+=============================*/
+.form {
+    text-align: center;
+    padding: 25px 0 20px 0;
+
+    border-bottom: 1px solid #000;
+}
+
+
+
+

@@ -1,0 +1,296 @@
+/* ADAPTIVE
+=============================*/
+@media (max-width: 1350px) {
+
+    /* Container */
+    .container {
+        max-width: 1000px;
+        margin: 7% auto;
+    }
+
+    /* Select */
+    .select__checkbox__value {
+        width: 36px;
+    }
+
+    .select__checkbox {
+        width: 61px;
+    }
+
+    /* Massage */
+    .massage {
+        font-size: 14px;
+    }
+
+    /* Information */
+    .information__inner {
+        padding: 0 25px;
+    }
+}
+
+@media (max-width: 1190px) {
+
+    /* Container */
+    .container {
+        max-width: 900px;
+    }
+
+    /* Intro */
+    .intro__title {
+        font-size: 22px;
+    }
+
+    /* Information */
+    .information__photo {
+        width: 100px;
+    }
+
+    /* Intro */
+    .feedback__title {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 1000px) {
+
+    html, body {
+        height: 100%;
+    }
+
+    /* Container */
+    .container {
+        display: table;
+
+        width: 100%;
+        max-width: 1000px;
+        border-radius: 0;
+        margin: 0;
+
+        position: relative;
+        min-height: 100%;
+    }
+
+    /* Intro */
+    .intro {
+        padding-top: 25px;
+    }
+
+    /* Main */
+    .main {
+        display: table-row;
+        height: 100%;
+    }
+
+    /* Checkbox */
+    .select__checkbox {
+        width: 56px;
+    }
+
+    .select__checkbox__icon {
+        margin-bottom: 1px;
+    }
+
+    .select__checkbox__value {
+        font-size: 11px;
+
+        width: 28px;
+    }
+
+    /* Information */
+    .information {
+        padding: 15px 0;
+    }
+
+    .information__text {
+        margin: 18px 0;
+    }
+
+    /* Feedback */
+    .feedback__inner {
+        padding-bottom: 25px;
+    }
+
+    /* Footer */
+    .footer {
+        border-top: 1px solid #000;
+    }
+}
+
+@media (max-width: 850px) {
+
+    /* Intro */
+    .intro__title {
+        font-size: 20px;
+    }
+
+    .intro__subtitle {
+        font-size: 14px;
+    }
+
+    /* Massage */
+    .massage {
+        font-size: 13px;
+    }
+
+    /* Information */
+    .information__inner {
+        padding: 0 22px;
+    }
+
+    /* Feedback */
+    .feedback__title {
+        font-size: 20px;
+    }
+
+    .feedback__subtitle {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 700px) {
+
+    /* Header */
+    .header__logo {
+        height: 52px;
+    }
+
+    /* Information */
+    .information__photo {
+        width: 90px;
+        height: auto;
+    }
+
+    .information__text {
+        margin: 15px 0;
+    }
+
+    /* Feedback */
+    .feedback__textarea {
+        min-height: 150px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    /* Intro */
+    .intro__title {
+        font-size: 18px;
+    }
+
+    .intro__subtitle {
+        font-size: 12px;
+    }
+
+    /* Button */
+    .form__button {
+        font-size: 12px;
+        width: 85px;
+
+        padding: 6px;
+    }
+
+    /* Logo */
+    .header__logo {
+        height: 50px;
+    }
+
+    /* Navigation */
+    .nav {
+        font-size: 14px;
+    }
+
+    /* Information */
+    .information__text {
+        font-size: 12px;
+    }
+
+    /* Feedback */
+    .feedback__title {
+        font-size: 18px;
+    }
+
+    .feedback__subtitle {
+        font-size: 12px;
+    }
+
+    .feedback__textarea {
+        min-height: 100px;
+    }
+
+    /* Select */
+    .spoiler.spoiler-is-active + .select__vertical {
+        padding: 6px 0 6px 6px;
+    }
+}
+
+@media (max-width: 450px) {
+
+    /* Logo */
+    .header__logo {
+        height: 45px;
+    }
+
+    /* Navigation */
+    .nav {
+        font-size: 12px;
+    }
+
+    /* Header */
+    .intro__subtitle {
+        padding: 0 20px;
+    }
+
+    /* Massage */
+    .massage {
+        font-size: 11px;
+    }
+
+    /* Information */
+    .information {
+        padding: 15px 0;
+    }
+
+    .information__inner {
+        padding: 0 7px;
+    }
+
+    p {
+        font-size: 11px;
+    }
+
+    /* Feedback */
+    .feedback__inner {
+        padding-bottom: 20px;
+    }
+
+    /* Footer */
+    .footer__text {
+        font-size: 8px;
+    }
+}
+
+@media (max-width: 400px) {
+
+    /* Select */
+    .spoiler__title {
+        max-width: 250px;
+    }
+}
+
+@media (max-width: 350px) {
+
+    /* Information */
+    .information__photo {
+        width: 75px;
+    }
+
+    /* Select */
+    .spoiler__title {
+        max-width: 220px;
+    }
+
+    /* Massage */
+    .massage {
+        font-size: 9px;
+    }
+}

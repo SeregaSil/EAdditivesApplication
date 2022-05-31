@@ -1,0 +1,39 @@
+/* ADAPTIVE_DECODING
+=============================*/
+@media (max-width: 1000px) {
+
+    /* Container */
+    .container {
+        height: 1400px;
+    }
+
+    /* Table */
+    .table_additives {
+        padding-top: 25px;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 1190px) {
+
+    /* Table */
+    .table_additives__title {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 850px) {
+
+    /* Table */
+    .table_additives__title {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    /* Table */
+    .table_additives__title {
+        font-size: 18px;
+    }
+}

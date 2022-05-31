@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Decoding E-additives</title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/button/main_button.css">
+    <link rel="stylesheet" href="/static/css/decoding/table.css">
+    <link rel="stylesheet" href="/static/css/adaptive.css">
+    <link rel="stylesheet" href="/static/css/decoding/adaptive_decoding.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;500;700&family=Oswald:wght@400;500&display=swap" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" sizes="76x76" href="/static/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/static/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/static/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+</head>
+<body>
+
+    <!-- Loader -->
+    <div class="preloader">
+        <div class="preloader__row">
+            <div class="preloader__item"></div>
+            <div class="preloader__item"></div>
+        </div>
+    </div>
+
+    <!-- Container -->
+    <div class="container">
+
+        <!-- Header -->
+        <header class="header">
+            <div class="header__inner">
+                <div>
+                    <img class="header__logo" src="/static/img/logo/logo-nofon(min).png" alt="">
+                </div>
+
+                <nav class="nav">
+                    <a class="nav__link" href="/">Главная</a>
+                </nav>
+            </div>
+        </header >
+
+        <!-- Main -->
+        <main class="main">
+            <form class="table_additives" action="/pdf" method="post">
+                <div th:each="additiveAndName : ${eAdditivesAndTableName}" th:if="${!additiveAndName.value.isEmpty()}" th:remove="tag">
+                    <h1 class="table_additives__title" th:text="${additiveAndName.key}">Таблица добавок</h1>
+                    <table class="table_additives__table">
+                        <tr>
+                            <th>Индекс</th>
+                            <th>Наименование</th>
+                            <th>Описание</th>
+                        </tr>
+                        <tr th:each="eadditives : ${additiveAndName.value}">
+                            <td>
+                                <input type="hidden" name="index" th:value="${eadditives.index}" th:text="${eadditives.index}"/>
+                            </td>
+                            <td th:text="${eadditives.name}">1</td>
+                            <td th:text="${eadditives.information}">1</td>
+                        </tr>
+                    </table>
+                </div>
+                <button class="form__button button__download" type="submit" value="Скачать">Скачать</button>
+            </form>
+        </main>
+
+        <!-- Footer -->
+        <div th:insert="views/fragments/footer"></div>
+
+        <!-- JavaScript -->
+        <script src="/static/js/loader.js"></script>
+
+    </div>
+
+</body>
+</html>

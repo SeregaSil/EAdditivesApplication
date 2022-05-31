@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <title>E-additives</title>
+
+        <link rel="stylesheet" href="/static/css/style.css">
+        <link rel="stylesheet" href="/static/css/button/main_button.css">
+        <link rel="stylesheet" href="/static/css/home/checkbox_in_select_style.css">
+        <link rel="stylesheet" href="/static/css/home/information.css">
+        <link rel="stylesheet" href="/static/css/home/feedback.css">
+        <link rel="stylesheet" href="/static/css/adaptive.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;500;700&family=Oswald:wght@400;500&display=swap" rel="stylesheet">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" sizes="76x76" href="/static/img/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/static/img/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/static/img/favicon/favicon-16x16.png">
+        <link rel="manifest" href="/static/img/favicon/site.webmanifest">
+        <link rel="mask-icon" href="/static/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="theme-color" content="#ffffff">
+    </head>
+    <body>
+
+        <!-- Loader -->
+        <div class="preloader">
+            <div class="preloader__row">
+                <div class="preloader__item"></div>
+                <div class="preloader__item"></div>
+            </div>
+        </div>
+
+            <!-- Container -->
+            <div class="container">
+
+                <!-- Header -->
+                <header th:fragment="header" class="header">
+                    <div class="header__inner">
+                        <div>
+                            <img class="header__logo" src="/static/img/logo/logo-nofon(min).png" alt="">
+                        </div>
+
+                        <nav class="nav">
+                            <a class="nav__link" href="https://www.who.int/ru/news-room/fact-sheets/detail/food-additives">ВОЗ</a>
+                        </nav>
+                    </div>
+                </header>
+
+                <!-- Main -->
+                <main class="main">
+                    <!-- Intro -->
+                    <div class="intro">
+                        <div class="intro__inner">
+                            <h1 class="intro__title">Расшифровка Е-добавок</h1>
+                            <h2 class="intro__subtitle" >На данном сайте вы имеете возможность расшифровать Е-добавки.</h2>
+                            <h2 class="intro__subtitle" >Здесь вы можете узнать их значение, состав и вредны ли они вам.</h2>
+                        </div>
+                    </div>
+
+                    <!--Checkbox-->
+                    <form class="form" action="/decoding" method="post" target="_blank">
+                        <div class="select">
+                            <div tabindex="0" class="select__header">
+                                <span class="select__current">Выберите добавки</span>
+                                <div class="select__icon"></div>
+                            </div>
+                            <div class="select__body">
+                                <div th:each="additiveAndName : ${eAdditivesAndColumName}" th:remove="tag">
+                                    <div class="spoiler">
+                                        <span class="spoiler__title" th:text="${additiveAndName.key}">ColumName</span>
+                                        <div class="spoiler__icon"></div>
+                                    </div>
+                                    <div class="select__vertical">
+                                        <label th:each="eadditive : ${additiveAndName.value}" class="select__checkbox">
+                                            <input class="select__item" type="checkbox" name="index" th:value="${eadditive.index}"/>
+                                            <span class="select__checkbox__icon"></span>
+                                            <span class="select__checkbox__value" th:text="${eadditive.index}"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <input class="form__button form__submit" id="buttonAllCheckboxes" type="button" value="Выбрать всё">
+                        <input class="form__button form__submit" id="buttonCheckboxes" type="submit" value="Расшифровать">
+                        <input class="form__button form__submit" type="reset" value="Очистить">
+                    </form>
+
+                    <!--Information-->
+                    <div class="information">
+                        <div class="information__inner">
+                            <div class="distance__photos">
+                                <img class="information__photo" src="/static/img/mascot/carrot.png" alt="">
+                                <img class="information__photo corner-left-down" src="/static/img/mascot/carrot.png" alt="">
+                            </div>
+                            <div class="information__text"><p>Люди осознанно пренебрегают условиями, предоставленными им природой для здорового образа жизни. В современном мире создана быстро развивающаяся отрасль промышленности, которая призвана сохранять продукты питания, увеличивать срок их хранения, перерабатывать и значительно видоизменять всё то, что люди вырастили собственным трудом или взяли у природы. А именно: консервировать, ароматизировать, подкрашивать.</p>
+                                <p>Пищевые добавки представляют собой синтетические химические или натуральные вещества, которые никогда самостоятельно не употребляются в пищу, а только вводятся в продукты, чтобы им придать определенные качества, например, вкус, консистенцию, цвет, запах, продолжительность хранения, внешний вид.</p>
+                                <p>Воздействие пищевых добавок на организм человека зависит как от индивидуальных особенностей организма, так и от количества вещества. Для каждого вещества существует максимальная доза, превышение которой может нанести вред здоровью человека. Для некоторых веществ, применяемых в качестве пищевых добавок такая доза составляет несколько миллиграмм на килограмм веса человека, для других — десятые доли грамма на килограмм веса.</p>
+                            </div>
+                            <div class="distance__photos">
+                                <img class="information__photo corner-right-top" src="/static/img/mascot/carrot.png" alt="">
+                                <img class="information__photo corner-left-top" src="/static/img/mascot/carrot.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Feedback-->
+                    <div class="feedback">
+                        <div class="feedback__inner">
+                            <div class="feedback__text">
+                                <h1 class="feedback__title">Сообщение об Ошибке</h1>
+                                <h3 class="feedback__subtitle">Если вы заметили какие-то ошибки в предоставленной информации, пожалуйста, потратьте немного своего драгоценного времени и сообщите о ней нам. Только так мы сможем исправить неточности и помочь остальным.</h3>
+                            </div>
+                            <form action="/" class="feedback__form" method="post" accept-charset="UTF-8">
+                                <label>
+                                    <textarea class="feedback__textarea" name="message" placeholder="Длина сообщения должна быть больше 50 символов и без пробела в начале."></textarea>
+                                    <input class="form__button feedback__submit" id="buttonTextArea" type="submit" value="Отправить">
+                                    <input class="form__button feedback__submit" type="reset" value="Очистить">
+                                </label>
+                            </form>
+                        </div>
+                    </div>
+                </main>
+
+                <!--Footer-->
+                <div th:insert="views/fragments/footer"></div>
+            </div><!--./container-->
+
+        <!--Script-->
+        <script src="/static/js/loader.js"></script>
+        <script src="/static/js/checkbox_in_select.js"></script>
+
+    </body>
+</html>

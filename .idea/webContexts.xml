@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebContextManager">
+    <option name="state">
+      <map>
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/eadditives/index.html" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/eadditives" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/fragments/checkboxes.html" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/fragments" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home/decoding.html" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home/index.html" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home" />
+      </map>
+    </option>
+  </component>
+</project>

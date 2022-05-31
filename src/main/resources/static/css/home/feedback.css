@@ -1,0 +1,52 @@
+/* FEEDBACK
+=============================*/
+.feedback {
+    padding: 25px 0 0 0;
+}
+
+.feedback__inner {
+    width: 100%;
+    max-width: 1000px;
+
+    margin: 0 auto;
+    text-align: center;
+}
+
+.feedback__text {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.feedback__title {
+    font-size: 25px;
+    margin-bottom: 15px;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.feedback__subtitle {
+    line-height: 1.2;
+    font-size: 14px;
+    font-weight: 500;
+
+    margin-bottom: 20px;
+}
+
+.feedback__form {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.feedback__textarea {
+    width: 100%;
+    min-height: 200px;
+    resize: vertical;
+
+    margin-bottom: 12px;
+    box-shadow: 2px 2px 1px #000;
+}
+
+.feedback__textarea:focus {
+    box-shadow: 0 0 0;
+    transition: box-shadow 0.1s ease;
+}
