@@ -1,0 +1,13 @@
+.error {
+    padding: 25px 0;
+    text-align: center;
+}
+
+.error__text {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.error__photo {
+
+}

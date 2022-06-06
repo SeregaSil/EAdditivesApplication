@@ -127,6 +127,11 @@
         font-size: 14px;
     }
 
+    /* File */
+    .form__file__text {
+        font-size: 13px;
+    }
+
     /* Massage */
     .massage {
         font-size: 13px;
@@ -152,6 +157,11 @@
     /* Header */
     .header__logo {
         height: 52px;
+    }
+
+    /* File */
+    .form__file__text {
+        font-size: 12px;
     }
 
     /* Information */
@@ -189,6 +199,10 @@
         padding: 6px;
     }
 
+    .button__file__name {
+        width: 71px;
+    }
+
     /* Logo */
     .header__logo {
         height: 50px;
@@ -197,6 +211,11 @@
     /* Navigation */
     .nav {
         font-size: 14px;
+    }
+
+    /* File */
+    .form__file__text {
+        font-size: 10px;
     }
 
     /* Information */

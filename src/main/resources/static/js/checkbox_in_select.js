@@ -12,7 +12,7 @@ function selectToggle(event) {
         spoilerDefault();
     }
 
-    if (!event.target.closest('.form')) {
+    if (!event.target.closest('.form__checkbox')) {
         selectHeader.classList.remove('is-active');
         spoilerDefault();
     }
@@ -24,14 +24,14 @@ function selectToggleEnter(event) {
         spoilerDefault();
     }
 
-    if ((event.code === 'Enter') && !event.target.closest('.form')) {
+    if ((event.code === 'Enter') && !event.target.closest('.form__checkbox')) {
         selectHeader.classList.remove('is-active');
         spoilerDefault();
     }
 }
 
 //CHECKBOX
-const checkboxForm = document.querySelector('.form');
+const checkboxForm = document.querySelector('.form__checkbox');
 const checkboxes = document.querySelectorAll('.select__item');
 
 // Проверка на checked чекбокса
@@ -42,9 +42,6 @@ checkboxForm.addEventListener('submit', function (event) {
 
     for (item of checkboxes) {
         if (item.checked) {
-            if (massage != null) {
-                massage.remove();
-            }
             checkedCheckbox = true;
             this.submit();
         }
@@ -85,6 +82,11 @@ function spoilerDefault() {
     }
 }
 
+// Информация про Резерв (Е800–Е899)
+const selectsVertical = document.querySelectorAll('.select__vertical');
+
+selectsVertical.item(7).insertAdjacentHTML('beforeend', `<div class="massage" id="massageReserve">Зарезервированные коды для веществ, пока не используются.</div>`);
+
 //TEXTAREA
 // Проверка textarea на наличие символов
 const feedbackForm = document.querySelector('.feedback__form');
@@ -96,9 +98,6 @@ feedbackForm.addEventListener('submit', function(event) {
     let testForm = false;
 
     if (feedbackTextArea.value.length > 50 && !(feedbackTextArea.value.charAt(0) === ' ')) {
-        if (massage != null) {
-            massage.remove();
-        }
         testForm = true;
 
         let toSent = confirm('Вы уверены, что хотите отправить данное сообщение?')

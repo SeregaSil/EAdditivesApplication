@@ -29,6 +29,24 @@
     width: 140px;
 }
 
+.button__file {
+    height: 0.1px;
+    width: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.button__file__name {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 110px;
+    transform: translate(0, 16%);
+}
+
 .feedback__submit {
     width: 105px;
 }

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/error/error.css">
+    <link rel="stylesheet" href="/static/css/adaptive.css">
+    <link rel="stylesheet" href="/static/css/error/adaptive_error.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;500;700&family=Oswald:wght@400;500&display=swap" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" sizes="76x76" href="/static/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/static/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/static/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+</head>
+<body>
+
+    <!-- Loader -->
+    <div class="preloader">
+        <div class="preloader__row">
+            <div class="preloader__item"></div>
+            <div class="preloader__item"></div>
+        </div>
+    </div>
+
+    <!-- Container -->
+    <div class="container">
+
+        <!-- Header -->
+        <div th:insert="views/fragments/header"></div>
+
+            <main class="main">
+                <!-- Error -->
+                <div class="error">
+                    <p class="error__text">Не найдено пищевых добавок в файле, либо файл не может быть прочитан.</p>
+                    <img class="error__photo" src="/static/img/file/empty_file.gif" alt="">
+                </div>
+            </main>
+
+        <!-- Footer -->
+        <div th:insert="views/fragments/footer"></div>
+
+        <!-- JavaScript -->
+        <script src="/static/js/loader.js"></script>
+    </div>
+</body>
+</html>
