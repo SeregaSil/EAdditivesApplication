@@ -14,7 +14,7 @@ import java.util.Map;
 public class ExportDataToPdf {
 
     private Font getTableTextFont(int fontSize){
-        Font font = FontFactory.getFont("timesnewromanpsmt.ttf", "cp1251", BaseFont.EMBEDDED);
+        Font font = FontFactory.getFont("timesnewromanpsmt.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
         font.setColor(BaseColor.BLACK);
         font.setSize(fontSize);
         return font;
@@ -85,10 +85,10 @@ public class ExportDataToPdf {
         Document document = new Document(PageSize.A4);
         PdfWriter.getInstance(document,response.getOutputStream());
         document.open();
-        for (String tableName: tableNameAndAdditives.keySet()){
-            if (!tableNameAndAdditives.get(tableName).isEmpty()) {
-                document.add(createName(tableName));
-                document.add(createTable(tableNameAndAdditives.get(tableName)));
+        for (Map.Entry<String, List<EAdditive>> entry: tableNameAndAdditives.entrySet()){
+            if (!entry.getValue().isEmpty()) {
+                document.add(createName(entry.getKey()));
+                document.add(createTable(entry.getValue()));
             }
         }
         document.close();

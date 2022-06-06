@@ -38,40 +38,32 @@
     <div class="container">
 
         <!-- Header -->
-        <header class="header">
-            <div class="header__inner">
-                <div>
-                    <img class="header__logo" src="/static/img/logo/logo-nofon(min).png" alt="">
-                </div>
-
-                <nav class="nav">
-                    <a class="nav__link" href="/">Главная</a>
-                </nav>
-            </div>
-        </header >
+        <div th:insert="views/fragments/header"></div>
 
         <!-- Main -->
         <main class="main">
-            <form class="table_additives" action="/pdf" method="post">
-                <div th:each="additiveAndName : ${eAdditivesAndTableName}" th:if="${!additiveAndName.value.isEmpty()}" th:remove="tag">
-                    <h1 class="table_additives__title" th:text="${additiveAndName.key}">Таблица добавок</h1>
-                    <table class="table_additives__table">
-                        <tr>
-                            <th>Индекс</th>
-                            <th>Наименование</th>
-                            <th>Описание</th>
-                        </tr>
-                        <tr th:each="eadditives : ${additiveAndName.value}">
-                            <td>
-                                <input type="hidden" name="index" th:value="${eadditives.index}" th:text="${eadditives.index}"/>
-                            </td>
-                            <td th:text="${eadditives.name}">1</td>
-                            <td th:text="${eadditives.information}">1</td>
-                        </tr>
-                    </table>
-                </div>
-                <button class="form__button button__download" type="submit" value="Скачать">Скачать</button>
-            </form>
+            <div th:if="${!eAdditivesAndTableName.isEmpty()}" th:remove="tag">
+                <form class="table_additives" th:action="@{/pdf}" method="post">
+                    <div th:each="additiveAndName : ${eAdditivesAndTableName}" th:if="${!additiveAndName.getValue().isEmpty()}" th:remove="tag">
+                        <h1 class="table_additives__title" th:text="${additiveAndName.key}">Таблица добавок</h1>
+                        <table class="table_additives__table">
+                            <tr>
+                                <th>Индекс</th>
+                                <th>Наименование</th>
+                                <th>Описание</th>
+                            </tr>
+                            <tr th:each="eadditives : ${additiveAndName.value}">
+                                <td>
+                                    <input type="hidden" name="index" th:value="${eadditives.index}" th:text="${eadditives.index}"/>
+                                </td>
+                                <td th:text="${eadditives.name}">1</td>
+                                <td th:text="${eadditives.information}">1</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <button class="form__button button__download" type="submit" value="Скачать">Скачать</button>
+                </form>
+            </div>
         </main>
 
         <!-- Footer -->

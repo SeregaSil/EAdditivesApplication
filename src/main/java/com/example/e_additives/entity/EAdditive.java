@@ -2,12 +2,22 @@ package com.example.e_additives.entity;
 
 import javax.persistence.*;
 
+/**
+ * Класс-сущность.
+ * Представляет некоторую информацию о пищевой добавке.
+ * Содержит поля:
+ * <b>id</b> - id в базе данных;
+ * <b>type</b> - класс пищевых добавок;
+ * <b>index</b> - индекс пищевой добавки;
+ * <b>name</b> - название пищевой добавки;
+ * <b>information</b> - некоторая информация о добавке.
+ */
 @Entity
 @Table(name = "EAdditives")
 public class EAdditive implements Comparable<EAdditive>{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "type")
@@ -21,11 +31,6 @@ public class EAdditive implements Comparable<EAdditive>{
 
     @Column(name = "information")
     private String information;
-
-    @Override
-    public int compareTo(EAdditive anotherAdditives) {
-        return index.compareTo(anotherAdditives.index);
-    }
 
     public int getId() {
         return id;
@@ -47,7 +52,6 @@ public class EAdditive implements Comparable<EAdditive>{
         return name;
     }
 
-
     public void setName(String name) {
         this.name = name;
     }
@@ -57,7 +61,7 @@ public class EAdditive implements Comparable<EAdditive>{
     }
 
     public void setIndex(String index) {
-        this.type = index;
+        this.index = index;
     }
 
     public String getInformation() {
@@ -66,5 +70,10 @@ public class EAdditive implements Comparable<EAdditive>{
 
     public void setInformation(String information) {
         this.information = information;
+    }
+
+    @Override
+    public int compareTo(EAdditive anotherAdditive) {
+        return index.compareTo(anotherAdditive.index);
     }
 }
