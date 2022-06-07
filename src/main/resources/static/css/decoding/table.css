@@ -5,7 +5,9 @@
 }
 
 .table_additives__title {
+    font-family: 'Raleway',sans-serif;
     font-size: 22px;
+    font-weight: 700;
     margin-bottom: 15px;
     line-height: 1.2;
     text-transform: uppercase;

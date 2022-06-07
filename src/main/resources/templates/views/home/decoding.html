@@ -23,6 +23,9 @@
     <link rel="mask-icon" href="/static/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#ffffff">
+
+    <!--Script-->
+    <script src="/static/js/loader.js"></script>
 </head>
 <body>
 
@@ -40,8 +43,8 @@
             <div th:if="${!eAdditivesAndTableName.isEmpty()}" th:remove="tag">
                 <form class="table_additives" th:action="@{/pdf}" method="post">
                     <div th:each="additiveAndName : ${eAdditivesAndTableName}" th:if="${!additiveAndName.getValue().isEmpty()}" th:remove="tag">
-                        <h1 class="table_additives__title" th:text="${additiveAndName.key}">Таблица добавок</h1>
                         <table class="table_additives__table">
+                            <caption class="table_additives__title" th:text="${additiveAndName.key}">Таблица добавок</caption>
                             <tr>
                                 <th>Индекс</th>
                                 <th>Наименование</th>
@@ -63,9 +66,6 @@
 
         <!-- Footer -->
         <div th:insert="views/fragments/footer"></div>
-
-        <!-- JavaScript -->
-        <script src="/static/js/loader.js"></script>
 
     </div>
 

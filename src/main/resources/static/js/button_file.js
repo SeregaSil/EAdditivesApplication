@@ -1,11 +1,10 @@
 const buttonFile = document.getElementById('buttonFile');
 const buttonFileName = document.querySelector('.button__file__name');
-const text = 'Добавить файл';
 
 buttonFile.addEventListener("change", function () {
     if (this.files.length === 1) {
         buttonFileName.innerHTML = this.files[0].name;
-    } else buttonFileName.innerHTML = text;
+    } else buttonFileName.innerHTML = 'Добавить файл';
 })
 
 //BUTTON SUBMIT FILE
@@ -24,6 +23,6 @@ buttonFileSubmit.addEventListener('submit', function(event) {
     }
 
     if (massage === null && !sentFile) {
-        buttonFileSubmit.insertAdjacentHTML('beforeend', `<div class="massage" id="massageFile">Добавьте файл.</div>`);
+        buttonFileSubmit.insertAdjacentHTML('beforeend', `<div class="massage" id="massageFile">Добавьте файл!</div>`);
     }
 });

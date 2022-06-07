@@ -88,9 +88,15 @@ const selectsVertical = document.querySelectorAll('.select__vertical');
 selectsVertical.item(7).insertAdjacentHTML('beforeend', `<div class="massage" id="massageReserve">Зарезервированные коды для веществ, пока не используются.</div>`);
 
 //TEXTAREA
-// Проверка textarea на наличие символов
+// Проверка textarea на наличие символов и повторов
 const feedbackForm = document.querySelector('.feedback__form');
 const feedbackTextArea = document.querySelector('.feedback__textarea');
+
+feedbackTextArea.addEventListener('keydown', function (event) {
+    if (event.repeat) {
+        feedbackTextArea.value = '';
+    }
+});
 
 feedbackForm.addEventListener('submit', function(event) {
     event.preventDefault();

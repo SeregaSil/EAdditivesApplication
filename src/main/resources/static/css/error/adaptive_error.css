@@ -21,3 +21,11 @@
         font-size: 15px;
     }
 }
+
+@media (max-width: 450px) {
+
+    /* Error */
+    .error__photo {
+        width: 200px;
+    }
+}

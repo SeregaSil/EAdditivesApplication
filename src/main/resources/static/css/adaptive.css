@@ -10,11 +10,12 @@
 
     /* Select */
     .select__checkbox__value {
-        width: 36px;
+        font-size: 12px;
+        width: 30px;
     }
 
     .select__checkbox {
-        width: 61px;
+        width: 55px;
     }
 
     /* Massage */
@@ -40,14 +41,13 @@
         font-size: 22px;
     }
 
+    .feedback__title {
+        font-size: 22px;
+    }
+
     /* Information */
     .information__photo {
         width: 100px;
-    }
-
-    /* Intro */
-    .feedback__title {
-        font-size: 22px;
     }
 }
 
@@ -92,8 +92,21 @@
 
     .select__checkbox__value {
         font-size: 11px;
-
         width: 28px;
+    }
+
+    /* Button */
+    .form__button {
+        font-size: 14px;
+    }
+
+    .form__submit {
+        width: 130px;
+    }
+
+    .button__file__name {
+        font-size: 14px;
+        width: 100px;
     }
 
     /* Information */
@@ -125,6 +138,21 @@
 
     .intro__subtitle {
         font-size: 14px;
+    }
+
+    /* Button */
+    .form__button {
+        font-size: 13px;
+    }
+
+    .form__submit {
+        width: 123px;
+    }
+
+    .button__file__name {
+        font-size: 13px;
+        width: 93px;
+        transform: translate(0, 20%);
     }
 
     /* File */
@@ -159,6 +187,20 @@
         height: 52px;
     }
 
+    /* Button */
+    .form__button {
+        font-size: 13px;
+        padding: 7px 14px;
+    }
+
+    .form__submit {
+        width: 120px;
+    }
+
+    .button__file__name {
+        width: 90px;
+    }
+
     /* File */
     .form__file__text {
         font-size: 12px;
@@ -191,18 +233,6 @@
         font-size: 12px;
     }
 
-    /* Button */
-    .form__button {
-        font-size: 12px;
-        width: 85px;
-
-        padding: 6px;
-    }
-
-    .button__file__name {
-        width: 71px;
-    }
-
     /* Logo */
     .header__logo {
         height: 50px;
@@ -213,9 +243,30 @@
         font-size: 14px;
     }
 
+    /* Select */
+    .spoiler.spoiler-is-active + .select__vertical {
+        padding: 6px 0 6px 6px;
+    }
+
+    /* Button */
+    .form__button {
+        font-size: 12px;
+        padding: 6px 14px;
+    }
+
+    .form__submit {
+        width: 110px;
+    }
+
+    .button__file__name {
+        font-size: 12px;
+        width: 80px;
+        transform: translate(0, 17%);
+    }
+
     /* File */
     .form__file__text {
-        font-size: 10px;
+        font-size: 11px;
     }
 
     /* Information */
@@ -235,11 +286,6 @@
     .feedback__textarea {
         min-height: 100px;
     }
-
-    /* Select */
-    .spoiler.spoiler-is-active + .select__vertical {
-        padding: 6px 0 6px 6px;
-    }
 }
 
 @media (max-width: 450px) {
@@ -257,6 +303,15 @@
     /* Header */
     .intro__subtitle {
         padding: 0 20px;
+    }
+
+    /* Button */
+    .form__submit {
+        width: 100px;
+    }
+
+    .button__file__name {
+        width: 70px;
     }
 
     /* Massage */
@@ -306,6 +361,37 @@
     /* Select */
     .spoiler__title {
         max-width: 220px;
+    }
+
+    /* Checkbox */
+    .select__checkbox {
+        width: 52px;
+    }
+
+    .select__checkbox__icon {
+        margin-bottom: 1px;
+        margin-top: 0;
+    }
+
+    .select__checkbox__value {
+        font-size: 10px;
+        width: 25px;
+    }
+
+    /* Button */
+    .form__button {
+        font-size: 11px;
+        padding: 6px 11px
+    }
+
+    .form__submit {
+        width: 90px;
+    }
+
+    .button__file__name {
+        font-size: 11px;
+        width: 66px;
+        transform: translate(0, 20%);
     }
 
     /* Massage */
