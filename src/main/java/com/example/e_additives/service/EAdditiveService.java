@@ -19,8 +19,8 @@ public class EAdditiveService {
     private final EAdditivesRepository eAdditivesRepository;
 
     /**
-     * Конструктор
-     * @param eAdditivesRepository репозиторий {@link EAdditivesRepository} для доступа к информации из базы данных
+     * Конструктор.
+     * @param eAdditivesRepository репозиторий {@link EAdditivesRepository} для доступа к информации из базы данных.
      */
     @Autowired
     public EAdditiveService(EAdditivesRepository eAdditivesRepository) {
@@ -28,19 +28,19 @@ public class EAdditiveService {
     }
 
     /**
-     * Метод, возвращающий весь список пищевых добавок
+     * Метод, возвращающий весь список пищевых добавок.
      * @return {@link Map}, где ключ - название класса пищевых добавок,
-     * значение - список пищевых добавок, которые относятся к данному классу
+     * значение - список пищевых добавок, которые относятся к данному классу.
      */
     public Map<String, List<EAdditive>> getAllAdditives(){
         return sortedAdditivesByType(eAdditivesRepository.findAll());
     }
 
     /**
-     * Возвращает список выбранных пищевых добавок, отсортированный по каждому классу добавок
-     * @param indexes индексы выбранных пищевых добавок
+     * Возвращает список выбранных пищевых добавок, отсортированный по каждому классу добавок.
+     * @param indexes индексы выбранных пищевых добавок.
      * @return {@link Map}, где ключ - название класса пищевых добавок,
-     * значение - список пищевых добавок, которые относятся к данному классу
+     * значение - список пищевых добавок, которые относятся к данному классу.
      */
     public Map<String, List<EAdditive>> getSelectedAdditivesByIndexes(List<String> indexes){
         if(!indexes.isEmpty()){
@@ -63,10 +63,10 @@ public class EAdditiveService {
     private String[] names;
 
     /**
-     * Сортирует список пищевых добавок по их классам
-     * @param eAdditiveList список пищевых добавок, подлежащий сортировке
+     * Сортирует список пищевых добавок по их классам.
+     * @param eAdditiveList список пищевых добавок, подлежащий сортировке.
      * @return {@link Map}, где ключ - название класса пищевых добавок,
-     * значение - список пищевых добавок, которые относятся к данному классу
+     * значение - список пищевых добавок, которые относятся к данному классу.
      */
     private Map<String, List<EAdditive>> sortedAdditivesByType(List<EAdditive> eAdditiveList){
 

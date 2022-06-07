@@ -10,9 +10,39 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Класс, преобразующий информацию о пищевых добавках в pdf-файл.
+ */
 @Component
 public class ExportDataToPdf {
 
+    /**
+     * Метод, создающий новый pdf-документ и выводящий его в выходной поток {@link HttpServletResponse#getOutputStream()}.
+     * @param response HTTP-ответ на запрос о создании pdf-файла.
+     * @param tableNameAndAdditives {@link Map} с названиями таблиц в качестве ключей
+     *                                         и списками пищевых добавок в качестве значений.
+     * @throws DocumentException сигнализирует о том, что произошла ошибка при создании документа.
+     * @throws IOException сигнализирует о том, что произошло какое-либо исключение ввода-вывода.
+     */
+    public void export(HttpServletResponse response, Map<String, List<EAdditive>> tableNameAndAdditives) throws DocumentException, IOException {
+        Document document = new Document(PageSize.A4);
+        PdfWriter.getInstance(document,response.getOutputStream());
+        document.open();
+        for (Map.Entry<String, List<EAdditive>> entry: tableNameAndAdditives.entrySet()){
+            if (!entry.getValue().isEmpty()) {
+                document.add(createName(entry.getKey()));
+                document.add(createTable(entry.getValue()));
+            }
+        }
+        document.close();
+        response.getOutputStream().close();
+    }
+
+    /**
+     * Метод, создающий шрифт со стандартными настройками.
+     * @param fontSize размер шрифта.
+     * @return возвращает {@link Font} (шрифт) с настройками.
+     */
     private Font getTableTextFont(int fontSize){
         Font font = FontFactory.getFont("timesnewromanpsmt.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
         font.setColor(BaseColor.BLACK);
@@ -20,6 +50,11 @@ public class ExportDataToPdf {
         return font;
     }
 
+    /**
+     * Метод, создающий ячейку таблицы со стандартными настройками.
+     * @param color цвет заднего фона ячейки.
+     * @return возвращает {@link PdfPCell} (ячейку таблицы) с настройками.
+     */
     private PdfPCell getTableCell(BaseColor color){
         PdfPCell cell = new PdfPCell();
         cell.setBackgroundColor(color);
@@ -27,6 +62,10 @@ public class ExportDataToPdf {
         return cell;
     }
 
+    /**
+     * Метод, создающий шапку таблицы.
+     * @param table таблица для заполнения.
+     */
     private void writeTableHeader(PdfPTable table) {
 
         PdfPCell cell = getTableCell(new BaseColor(130,255,222,255));
@@ -43,6 +82,11 @@ public class ExportDataToPdf {
 
     }
 
+    /**
+     * Метод, заполняющий строку таблицы информацией о пищевой добавке.
+     * @param table таблица для заполнения.
+     * @param eAdditive пищевая добавка, информация о которой заносится в таблицу.
+     */
     private void writeTableData(PdfPTable table, EAdditive eAdditive) {
 
         PdfPCell cell = getTableCell(new BaseColor(211,255,233,255));
@@ -62,6 +106,13 @@ public class ExportDataToPdf {
 
     }
 
+    /**
+     * Метод, создающий таблицу и заполняющий ее данными.
+     * с помощью методов {@link ExportDataToPdf#writeTableHeader(PdfPTable)} и {@link ExportDataToPdf#writeTableData(PdfPTable, EAdditive)}.
+     * @param eAdditiveList список пищевых добавок.
+     * @throws DocumentException сигнализирует о том, что произошла ошибка при редактировании документа.
+     * @return возвращает созданную таблицу {@link PdfPTable}.
+     */
     private PdfPTable createTable(List<EAdditive> eAdditiveList) throws DocumentException {
 
         PdfPTable table = new PdfPTable(3);
@@ -75,23 +126,14 @@ public class ExportDataToPdf {
         return table;
     }
 
+    /**
+     * Метод, создающий название таблицы.
+     * @param name название таблицы.
+     * @return возвращает созданное название.
+     */
     private Paragraph createName(String name){
         Paragraph tableName = new Paragraph(name, getTableTextFont(18));
         tableName.setAlignment(Element.ALIGN_CENTER);
         return tableName;
-    }
-
-    public void export(HttpServletResponse response, Map<String, List<EAdditive>> tableNameAndAdditives) throws DocumentException, IOException {
-        Document document = new Document(PageSize.A4);
-        PdfWriter.getInstance(document,response.getOutputStream());
-        document.open();
-        for (Map.Entry<String, List<EAdditive>> entry: tableNameAndAdditives.entrySet()){
-            if (!entry.getValue().isEmpty()) {
-                document.add(createName(entry.getKey()));
-                document.add(createTable(entry.getValue()));
-            }
-        }
-        document.close();
-        response.getOutputStream().close();
     }
 }

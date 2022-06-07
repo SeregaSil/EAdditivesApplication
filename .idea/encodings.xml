@@ -4,6 +4,8 @@
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/static/img/file/empty_file.gif" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/test/java/com/example/e_additives/service/EAdditiveServiceTest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/com/example/e_additives/service/FileReadingServiceTest.java" charset="UTF-8" />
     <file url="PROJECT" charset="windows-1251" />
   </component>
 </project>
