@@ -22,7 +22,7 @@ Web-приложение для расшифровки пищевых добав
 
 # 3. Используемые технологии
 -	IntelliJ IDEA Ultimate
--	Spring Framework
--	Thymeleaf
+-	Spring Boot
+-	Thymeleaf, iText, Apache POI
 -	PostgreSQL
--	HTML, CSS, JS
+-	HTML, CSS, JavaScript, Java
