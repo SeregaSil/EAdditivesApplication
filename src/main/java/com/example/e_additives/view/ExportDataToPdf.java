@@ -67,17 +67,18 @@ public class ExportDataToPdf {
      * @param table таблица для заполнения.
      */
     private void writeTableHeader(PdfPTable table) {
+        Font font = getTableTextFont(16);
 
         PdfPCell cell = getTableCell(new BaseColor(130,255,222,255));
         cell.setHorizontalAlignment(Element.ALIGN_CENTER);
 
-        cell.setPhrase(new Phrase("Индекс", getTableTextFont(16)));
+        cell.setPhrase(new Phrase("Индекс", font));
         table.addCell(cell);
 
-        cell.setPhrase(new Phrase("Имя", getTableTextFont(16)));
+        cell.setPhrase(new Phrase("Имя", font));
         table.addCell(cell);
 
-        cell.setPhrase(new Phrase("Информация", getTableTextFont(16)));
+        cell.setPhrase(new Phrase("Информация", font));
         table.addCell(cell);
 
     }
@@ -86,29 +87,30 @@ public class ExportDataToPdf {
      * Метод, заполняющий строку таблицы информацией о пищевой добавке.
      * @param table таблица для заполнения.
      * @param eAdditive пищевая добавка, информация о которой заносится в таблицу.
+     * @param font шрифт.
      */
-    private void writeTableData(PdfPTable table, EAdditive eAdditive) {
+    private void writeTableData(PdfPTable table, EAdditive eAdditive, Font font) {
 
         PdfPCell cell = getTableCell(new BaseColor(211,255,233,255));
         cell.setPaddingLeft(3);
         cell.setHorizontalAlignment(Element.ALIGN_CENTER);
         cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
 
-        cell.setPhrase(new Phrase(eAdditive.getIndex(), getTableTextFont(12)));
+        cell.setPhrase(new Phrase(eAdditive.getIndex(), font));
         table.addCell(cell);
 
-        cell.setPhrase(new Phrase(eAdditive.getName(), getTableTextFont(12)));
+        cell.setPhrase(new Phrase(eAdditive.getName(), font));
         table.addCell(cell);
 
         cell.setHorizontalAlignment(Element.ALIGN_LEFT);
-        cell.setPhrase(new Phrase(eAdditive.getInformation(), getTableTextFont(12)));
+        cell.setPhrase(new Phrase(eAdditive.getInformation(), font));
         table.addCell(cell);
 
     }
 
     /**
      * Метод, создающий таблицу и заполняющий ее данными.
-     * с помощью методов {@link ExportDataToPdf#writeTableHeader(PdfPTable)} и {@link ExportDataToPdf#writeTableData(PdfPTable, EAdditive)}.
+     * с помощью методов {@link ExportDataToPdf#writeTableHeader(PdfPTable)} и {@link ExportDataToPdf#writeTableData(PdfPTable, EAdditive,Font)}.
      * @param eAdditiveList список пищевых добавок.
      * @throws DocumentException сигнализирует о том, что произошла ошибка при редактировании документа.
      * @return возвращает созданную таблицу {@link PdfPTable}.
@@ -120,8 +122,11 @@ public class ExportDataToPdf {
         table.setWidths(new float[]{1.0f, 1.5f, 5.0f});
         table.setSpacingBefore(10);
         writeTableHeader(table);
+
+        Font font = getTableTextFont(12);
+
         for (EAdditive e: eAdditiveList){
-            writeTableData(table, e);
+            writeTableData(table, e, font);
         }
         return table;
     }
